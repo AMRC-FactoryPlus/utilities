@@ -1,5 +1,3 @@
-ARG TAG
-
 FROM ghcr.io/amrc-factoryplus/acs-helpers-build AS build
 
 FROM node:lts-alpine
