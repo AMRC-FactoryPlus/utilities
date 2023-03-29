@@ -1,0 +1,26 @@
+import {ServiceInterface} from "../service-client";
+import {IClientOptions, MqttClient} from "mqtt/types/lib/client";
+
+export default class MQTTInterface extends ServiceInterface {
+
+    /**
+     * MQTTClient with build in GSSAPI for k8s Authentication
+     * URL is can be custom if logging in with Basic Authentication
+     * @param opts Options for MQTT Client
+     */
+    mqtt_client(opts?: mqttConfig): MqttClient;
+}
+
+export interface mqttConfig extends IClientOptions{
+
+    /**
+     * Boolean to enable debug logs
+     */
+    verbose?: boolean;
+
+    /**
+     * Period before reconnecting.
+     */
+    reconnectPeriod?: number;
+
+}

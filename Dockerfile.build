@@ -1,0 +1,31 @@
+FROM node:lts-alpine
+
+ARG PG_VERSION=14.3
+
+# Install system packages we need to build.
+RUN apk add bison flex gcc g++ cmake make \
+    krb5-dev libedit-dev zlib-dev linux-headers \
+    python3
+
+# Install postgres from source as the alpine package doesn't include
+# GSSAPI support.
+RUN wget -O /tmp/postgresql.tar.bz2 "https://ftp.postgresql.org/pub/source/v$PG_VERSION/postgresql-$PG_VERSION.tar.bz2"
+RUN mkdir -p /usr/src/postgresql
+WORKDIR /usr/src/postgresql
+RUN tar -xf /tmp/postgresql.tar.bz2 --strip-components 1
+RUN ./configure --prefix=/usr/local --with-gssapi \
+    && make -j6 \
+    && make -C src/bin install \
+    && make -C src/include install \
+    && make -C src/interfaces install
+
+# Install a second time into /dist so we can pick out the files we need.
+RUN mkdir -p /dist \
+    && make -C src/bin install DESTDIR=/dist \
+    && make -C src/include install DESTDIR=/dist \
+    && make -C src/interfaces install DESTDIR=/dist
+
+# Set up NPM to reference our registry.
+USER node
+WORKDIR /home/node
+RUN npm config set @amrc-factoryplus:registry https://npm.pkg.github.com
