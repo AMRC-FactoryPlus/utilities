@@ -202,7 +202,7 @@ import { FplusHttpAuth, WebAPI } from "@amrc-factoryplus/acs-helpers";
 
 Classes useful in implementing an HTTP service confirming to the Factory+ spec.
 
-[Full Web API Documentation](./docs/webapi.md)
+- [Full Web API Documentation](./docs/webapi.md)
 
 ### Deprecated APIs
 
