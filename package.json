@@ -1,6 +1,6 @@
 {
   "name": "@amrc-factoryplus/acs-helpers",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "NodeJS utilities for components of the AMRC Connectivity Stack",
   "type": "module",
   "main": "lib/index.js",

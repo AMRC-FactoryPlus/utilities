@@ -1,6 +1,6 @@
 ARG TAG
 
-FROM ${TAG} AS build
+FROM ghcr.io/amrc-factoryplus/acs-helpers-build AS build
 
 FROM node:lts-alpine
 
