@@ -1,6 +1,6 @@
-ARG PREFIX
-ARG TAG
-FROM ${PREFIX}-build:${TAG} AS build
+ARG TAGS
+
+FROM ${TAGS}[0] AS build
 
 FROM node:lts-alpine
 
