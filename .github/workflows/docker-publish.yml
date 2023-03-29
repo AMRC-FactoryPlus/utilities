@@ -143,7 +143,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
         env:
-          TAGS: ${{ steps.meta.outputs.tags }}
+          TAG: ${{ steps.meta.outputs.tags[0] }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
