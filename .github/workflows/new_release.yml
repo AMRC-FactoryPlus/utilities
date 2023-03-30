@@ -26,9 +26,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Update package.json version to $VERSION
+          title: Update package.json version to ${VERSION}
           branch: update-version
-          commit-message: Update version to $VERSION
+          commit-message: Update version to ${VERSION}
           delete-branch: true
           base: main
   publish:
