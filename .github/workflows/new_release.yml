@@ -21,6 +21,7 @@ jobs:
           CURRENT_TAG=${GITHUB_REF#refs/tags/}
           echo "Current tag: $CURRENT_TAG"
           VERSION="${CURRENT_TAG#v}"
+          git checkout update-package-version
           echo "Updating version to: $VERSION"
           jq ".version = \"$VERSION\"" package.json > package.json.tmp
           mv package.json.tmp package.json
@@ -32,7 +33,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           title: Update package.json version to $VERSION
-          branch: update-version
+          branch: update-package-version
           commit-message: Update version to $VERSION
           delete-branch: true
           base: main
