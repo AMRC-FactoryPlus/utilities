@@ -1,7 +1,9 @@
 {
-  "name": "@amrc-factoryplus/helpers",
+  "name": "@amrc-factoryplus/utilities",
   "version": "1.0.4",
   "description": "A collection of NodeJS utilities for developing components for Factory+",
+  "author": "AMRC",
+  "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
@@ -45,8 +47,6 @@
     "mqtt",
     "sparkplug"
   ],
-  "author": "AMRC",
-  "license": "MIT",
   "devDependencies": {
     "eslint": "^8.28.0"
   },
