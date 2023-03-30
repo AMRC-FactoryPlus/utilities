@@ -25,7 +25,7 @@ jobs:
           delete-branch: true
   publish:
     runs-on: ubuntu-latest
-    needs: update-package-version
+    needs: update-version
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
