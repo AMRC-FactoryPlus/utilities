@@ -29,6 +29,7 @@ jobs:
           title: Update package.json version to ${VERSION}
           branch: update-version
           commit-message: Update version to ${VERSION}
+          body: Update the version of `package.json` to ${VERSION} as part of release process
           delete-branch: true
           base: main
   publish:
