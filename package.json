@@ -1,13 +1,10 @@
 {
-  "name": "@amrc-factoryplus/acs-helpers",
+  "name": "@amrc-factoryplus/helpers",
   "version": "1.0.4",
-  "description": "NodeJS utilities for components of the AMRC Connectivity Stack",
+  "description": "A collection of NodeJS utilities for developing components for Factory+",
   "type": "module",
   "main": "lib/index.js",
   "types": "./types/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "exports": {
     ".": {
       "import": "./lib/index.js",
@@ -19,13 +16,7 @@
     "doc": "docs",
     "lib": "lib"
   },
-  "scripts": {
-    "test": "echo \"Error: no tests specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AMRC-FactoryPlus/acs-helpers.git"
-  },
+  "scripts": {},
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
@@ -45,9 +36,17 @@
     "gssapi.js": "^2.0.1",
     "pg-native": "^3.0.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "amrc",
+    "factory-plus",
+    "factoryplus",
+    "acs",
+    "amrc-connectivity-stack",
+    "mqtt",
+    "sparkplug"
+  ],
+  "author": "AMRC",
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^8.28.0"
   },

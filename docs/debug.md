@@ -1,7 +1,7 @@
 # Debug logging support
 
 ```js
-import { Debug } from "@amrc-factoryplus/acs-helpers";
+import { Debug } from "@amrc-factoryplus/helpers";
 ```
 
 This class implements simple configurable logging. All logs go to `console.log`.

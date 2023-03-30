@@ -1,7 +1,7 @@
 # Web API boilerplate
 
 ```js
-import { FplusHttpAuth, WebAPI } from "@amrc-factoryplus/acs-helpers";
+import { FplusHttpAuth, WebAPI } from "@amrc-factoryplus/helpers";
 ```
 
 These classes implement some of the boilerplate required for an HTTP service conforming to the Factory+ framework.

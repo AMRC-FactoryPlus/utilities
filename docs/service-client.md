@@ -1,10 +1,10 @@
 # Factory+ service client
 
 ```js
-import { ServiceClient } from "@amrc-factoryplus/acs-helpers";
+import { ServiceClient } from "@amrc-factoryplus/helpers";
 ```
 
-This class provides support for the process of consuming Factory+/ACS services as a client.
+This class provides support for the process of consuming Factory+ services as a client.
 
 All methods (should) use a Debug object for logging, allowing logging to be configured via the `VERBOSE` environment variable.
 

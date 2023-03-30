@@ -1,11 +1,11 @@
 # Third-party modules
 
-The library imports and re-exports certain third-party modules likely to be useful across ACS services. This is partly for convenience and partly to abstract out dependencies which may need to change in the future.
+The library imports and re-exports certain third-party modules likely to be useful across Factory+ services. This is partly for convenience and partly to abstract out dependencies which may need to change in the future.
 
 ## GSSAPI
 
 ```js
-import { GSS } from "@amrc-factoryplus/acs-helpers";
+import { GSS } from "@amrc-factoryplus/helpers";
 ```
 
 This is an export of the `gssapi.js` npm module, which provides an interface to the Kerberos library. On Windows `GSS` can be imported, but imports as `undefined`, as we currently don't support GSSAPI on Windows.
@@ -15,7 +15,7 @@ This is an export of the `gssapi.js` npm module, which provides an interface to 
 ## MQTT
 
 ```js
-import { MQTT } from "@amrc-factoryplus/acs-helpers";
+import { MQTT } from "@amrc-factoryplus/helpers";
 ```
 
 This is a straight re-export of the `mqtt` npm module.
@@ -25,7 +25,7 @@ This is a straight re-export of the `mqtt` npm module.
 ## Sparkplug
 
 ```js
-import { SpB } from "@amrc-factoryplus/acs-helpers";
+import { SpB } from "@amrc-factoryplus/helpers";
 ```
 
 This is a re-export of the Sparkplug B v1.0 payload decoder from the official `sparkplug-payload` Javascript library.
@@ -35,17 +35,17 @@ This is a re-export of the Sparkplug B v1.0 payload decoder from the official `s
 ## Postgres
 
 ```js
-import { Pg } from "@amrc-factoryplus/acs-helpers";
+import { Pg } from "@amrc-factoryplus/helpers";
 ```
 
-This is a re-export of the native bindings to the Postgresql client libraries. The Docker images ensure that these have been build with GSSAPI support, allowing the client to use ACS Kerberos credentials to access the database.
+This is a re-export of the native bindings to the Postgresql client libraries. The Docker images ensure that these have been build with GSSAPI support, allowing the client to use Factory+ Kerberos credentials to access the database.
 
 - [Official Node Postgres Documentation](https://node-postgres.com/features/native)
 
 ## Fetch
 
 ```js
-import { fetch } from "@amrc-factoryplus/acs-helpers";
+import { fetch } from "@amrc-factoryplus/helpers";
 ```
 
 This is an implementation of the Fetch API. Currently this is provided by `got-fetch`, as this is the only implementation available for Node which provides correct caching support; this may change in the future, especially if Node provides a native implementation.

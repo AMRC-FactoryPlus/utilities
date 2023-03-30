@@ -1,13 +1,11 @@
 > **Note**
-> The AMRC Connectivity Stack is an open-source implementation of the
-> AMRC's [Factory+ Framework](https://factoryplus.app.amrc.co.uk/).
+> The AMRC Connectivity Stack is an open-source implementation of the AMRC's [Factory+ Framework](https://factoryplus.app.amrc.co.uk/).
 
-This is a NodeJS library for writing clients for the AMRC Connectivity Stack or other Factory+ services.
+This is a NodeJS library for writing clients for Factory+. It was used extensively when building the AMRC Connectivity Stack.
 
 ## Getting Started
 
-Because this library has native code dependencies, the easiest way to use it from your code is to base your container
-image on the Docker images that we provide.
+Because this library has native code dependencies, the easiest way to use it from your code is to base your container image on the Docker images that we provide.
 
 Start a new project by running
 
@@ -39,7 +37,7 @@ CMD npm start
 then you need to replace it with one which looks like this:
 
 ```dockerfile
-FROM ghcr.io/amrc-factoryplus/acs-helpers-build:latest AS build
+FROM ghcr.io/amrc-factoryplus/helpers-build:latest AS build
 
 # Install the node application on the build container where we can
 # compile the native modules.
@@ -50,7 +48,7 @@ COPY package*.json ./
 RUN npm install --save=false
 COPY . .
 
-FROM ghcr.io/amrc-factoryplus/acs-helpers-run:latest
+FROM ghcr.io/amrc-factoryplus/helpers-run:latest
 
 # Copy across from the build container.
 WORKDIR /home/node/app
@@ -86,7 +84,7 @@ You now need to add the following entry to your `package.json`:
 ```
 {
     "dependencies": {
-        "@amrc-factoryplus/acs-helpers": "^1.0.0"
+        "@amrc-factoryplus/helpers": "^1.0.0"
     }
 }
 ```
@@ -101,17 +99,17 @@ have `"type": "module"` in your`package.json`, or if you are using `.mjs` file e
 like this:
 
 ```js
-import * as factoryplus from "@amrc-factoryplus/acs-helpers";
+import * as factoryplus from "@amrc-factoryplus/helpers";
 
 // or
 
-import { WebAPI } from "@amrc-factoryplus/acs-helpers";
+import { WebAPI } from "@amrc-factoryplus/helpers";
 ```
 
 If you are using CommonJS (using `require` to load modules) you will need to use:
 
 ```js
-const factoryplus = await import("@amrc-factoryplus/acs-helpers");
+const factoryplus = await import("@amrc-factoryplus/helpers");
 ```
 
 Be aware that because you can't do top-level `await` in CommonJS you will need to call this from within an `async` function. 
@@ -123,7 +121,7 @@ If you are using Typescript then the ESM import should work fine. There are curr
 ### Third-party libraries
 
 ```js
-import { MQTT, GSS, Pg, SpB, fetch } from "@amrc-factoryplus/acs-helpers";
+import { MQTT, GSS, Pg, SpB, fetch } from "@amrc-factoryplus/helpers";
 ```
 
 These are re-exports of third party modules. They are re-exported here partly to provide protection from future changes to the third-party modules, and partly to work around bugs or problems with importing.
@@ -133,7 +131,7 @@ These are re-exports of third party modules. They are re-exported here partly to
 ### Database access
 
 ```js
-import { DB } from "@amrc-factoryplus/acs-helpers";
+import { DB } from "@amrc-factoryplus/helpers";
 ```
 
 A class for accessing a Postgres database. Provides basic transaction/retry support on top of the `pg` module.
@@ -143,7 +141,7 @@ A class for accessing a Postgres database. Provides basic transaction/retry supp
 ### Logging
 
 ```js
-import { Debug } from "@amrc-factoryplus/acs-helpers";
+import { Debug } from "@amrc-factoryplus/helpers";
 ```
 
 Configurable logging support.
@@ -153,7 +151,7 @@ Configurable logging support.
 ### Factory+ Service Client
 
 ```js
-import { ServiceClient } from "@amrc-factoryplus/acs-helpers";
+import { ServiceClient } from "@amrc-factoryplus/helpers";
 ```
 
 This provides client access to the Factory+ service framework, including automatic support for service discovery and GSSAPI authentication.
@@ -167,7 +165,7 @@ import {
     Address, Topic,
     MetricBuilder,
     MetricBranch, MetricTree,
-} from "@amrc-factoryplus/acs-helpers";
+} from "@amrc-factoryplus/helpers";
 ```
 
 Utility classes for working with Sparkplug packets.
@@ -181,7 +179,7 @@ import {
     Version,
     resolve, pkgVersion,
     loadJsonObj, loadAllJson,
-} from "@amrc-factoryplus/acs-helpers";
+} from "@amrc-factoryplus/helpers";
 ```
 
 - [Full Miscellaneous Utility Documentation](./docs/util.md)
@@ -189,7 +187,7 @@ import {
 ### Well-known UUIDs
 
 ```js
-import { UUIDs } from "@amrc-factoryplus/acs-helpers";
+import { UUIDs } from "@amrc-factoryplus/helpers";
 ```
 
 Constants representing well-known UUIDs. For more information on the well-known UUIDs specified by Factory+ [refer to the Factory+ framework](https://factoryplus.app.amrc.co.uk).
@@ -197,7 +195,7 @@ Constants representing well-known UUIDs. For more information on the well-known 
 ### Web API boilerplate
 
 ```js
-import { FplusHttpAuth, WebAPI } from "@amrc-factoryplus/acs-helpers";
+import { FplusHttpAuth, WebAPI } from "@amrc-factoryplus/helpers";
 ```
 
 Classes useful in implementing an HTTP service confirming to the Factory+ spec.
@@ -207,7 +205,7 @@ Classes useful in implementing an HTTP service confirming to the Factory+ spec.
 ### Deprecated APIs
 
 ```js
-import { debug, secrets, gss_mqtt } from "@amrc-factoryplus/acs-helpers";
+import { debug, secrets, gss_mqtt } from "@amrc-factoryplus/helpers";
 ```
 
 These are deprecated APIs.

@@ -1,5 +1,5 @@
 /*
- * Factory+ / AMRC Connectivity Stack (ACS) NodeJS Helpers
+ * Factory+ NodeJS Helpers
  * Type Declaration File.
  * Copyright 2023 AMRC.
  */

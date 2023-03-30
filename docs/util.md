@@ -5,7 +5,7 @@ These functions are miscellaneous utilities that have been useful when building 
 ## `Version`
 
 ```js
-import { Version } from "@amrc-factoryplus/acs-helpers";
+import { Version } from "@amrc-factoryplus/helpers";
 ```
 
 A constant giving the version number of this module.
@@ -42,4 +42,4 @@ objs = loadAllJson(paths);
 
 Accepts an array of paths. Ignores paths which do not exist. Paths which refer to directories are expanded to a list of all files in the directory which do not begin with `.`. The resulting list of files is passed through `loadJsonObj` and an array of the objects returned.
 
-This is used for loading bootstrap JSON dumps by the Auth and ConfigDB Factory+/ACS services.
+This is used for loading bootstrap JSON dumps by the Auth and ConfigDB Factory+ services.

@@ -28,4 +28,3 @@ RUN mkdir -p /dist \
 # Set up NPM to reference our registry.
 USER node
 WORKDIR /home/node
-RUN npm config set @amrc-factoryplus:registry https://npm.pkg.github.com
