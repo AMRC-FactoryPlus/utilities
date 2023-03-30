@@ -26,11 +26,11 @@ jobs:
           git add package.json
           git commit -m "Update package.json version to $CURRENT_TAG"
       - name: Create merge request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
-          title: "Update package.json version to $VERSION"
-          branch: "update-version-to-$VERSION"
-          commit-message: "Update version to $VERSION"
+          title: Update package.json version to $VERSION
+          branch: update-version-to-$VERSION
+          commit-message: Update version to $VERSION
           delete-branch: true
           base: main
   publish:
@@ -46,10 +46,7 @@ jobs:
           node-version: '16.x'
 
       - name: Install Dependencies
-        run: npm install
-
-      - name: Build Package
-        run: npm run build
+        run: npm ci
 
       - name: Publish Package
         run: |
