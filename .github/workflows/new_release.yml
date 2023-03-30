@@ -5,35 +5,24 @@ on:
     tags: [ 'v*.*.*' ]
 
 jobs:
-  update-package-version:
+  update-version:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.ref }}
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Update version in package.json
         run: |
-          CURRENT_TAG=${GITHUB_REF#refs/tags/}
-          echo "Current tag: $CURRENT_TAG"
-          VERSION="${CURRENT_TAG#v}"
-          echo "Updating version to: $VERSION"
-          jq ".version = \"$VERSION\"" package.json > package.json.tmp
-          mv package.json.tmp package.json
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add package.json
-          git commit -m "Update package.json version to $CURRENT_TAG"
-          git push origin HEAD:main
-
+          TAG=$(echo "${GITHUB_REF#refs/tags/}")
+          VERSION=$(echo "$TAG" | sed -e 's/^v//' -e 's/$//' )
+          echo "Updating package.json version to $VERSION"
+          npm version $VERSION
+      - name: Create merge request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Update package.json version to $VERSION"
+          branch: "update-version-to-$VERSION"
+          commit-message: "Update version to $VERSION"
+          delete-branch: true
   publish:
     runs-on: ubuntu-latest
     needs: update-package-version
