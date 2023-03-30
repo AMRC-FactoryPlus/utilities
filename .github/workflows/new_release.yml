@@ -1,5 +1,8 @@
 name: New Release
 
+env:
+  REGISTRY: ghcr.io
+
 on:
   release:
     types: [published]
