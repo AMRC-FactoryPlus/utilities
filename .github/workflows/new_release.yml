@@ -21,7 +21,7 @@ jobs:
           CURRENT_TAG=${GITHUB_REF#refs/tags/}
           echo "Current tag: $CURRENT_TAG"
           VERSION="${CURRENT_TAG#v}"
-          git checkout update-package-version
+          git checkout -b update-package-version
           echo "Updating version to: $VERSION"
           jq ".version = \"$VERSION\"" package.json > package.json.tmp
           mv package.json.tmp package.json
