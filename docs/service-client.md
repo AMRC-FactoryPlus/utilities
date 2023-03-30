@@ -1,7 +1,7 @@
 # Factory+ service client
 
 ```js
-import { ServiceClient } from "@amrc-factoryplus/helpers";
+import { ServiceClient } from "@amrc-factoryplus/utilities";
 ```
 
 This class provides support for the process of consuming Factory+ services as a client.

@@ -1,4 +1,4 @@
-FROM ghcr.io/amrc-factoryplus/helpers-build AS build
+FROM ghcr.io/amrc-factoryplus/utilities-build AS build
 
 FROM node:lts-alpine
 

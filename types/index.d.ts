@@ -1,5 +1,5 @@
 /*
- * Factory+ NodeJS Helpers
+ * Factory+ NodeJS Utilities
  * Type Declaration File.
  * Copyright 2023 AMRC.
  */

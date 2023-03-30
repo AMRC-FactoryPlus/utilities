@@ -5,7 +5,7 @@ These functions are miscellaneous utilities that have been useful when building 
 ## `Version`
 
 ```js
-import { Version } from "@amrc-factoryplus/helpers";
+import { Version } from "@amrc-factoryplus/utilities";
 ```
 
 A constant giving the version number of this module.

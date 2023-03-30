@@ -1,7 +1,7 @@
 # Database access API
 
 ```js
-import { DB } from "@amrc-factoryplus/helpers";
+import { DB } from "@amrc-factoryplus/utilities";
 ```
 
 This class provides a basic wrapper over a database connection. It supports checking the version of the database DDL and basic transaction and reconnection support.
