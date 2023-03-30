@@ -24,7 +24,6 @@ jobs:
         run: |
           CURRENT_TAG=${GITHUB_REF#refs/tags/}
           echo "Current tag: $CURRENT_TAG"
-          echo "Branch: $GITHUB_REF"
           VERSION="${CURRENT_TAG#v}"
           echo "Updating version to: $VERSION"
           jq ".version = \"$VERSION\"" package.json > package.json.tmp
@@ -33,7 +32,7 @@ jobs:
           git config --global user.email 'action@github.com'
           git add package.json
           git commit -m "Update package.json version to $CURRENT_TAG"
-          git push origin HEAD:$GITHUB_REF
+          git push origin HEAD:main
 
   publish:
     runs-on: ubuntu-latest
