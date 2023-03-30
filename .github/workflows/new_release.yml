@@ -14,26 +14,20 @@ jobs:
   update-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Update version in package.json
         run: |
           CURRENT_TAG=${GITHUB_REF#refs/tags/}
           echo "Current tag: $CURRENT_TAG"
           VERSION="${CURRENT_TAG#v}"
-          git checkout -b update-package-version
           echo "Updating version to: $VERSION"
           jq ".version = \"$VERSION\"" package.json > package.json.tmp
           mv package.json.tmp package.json
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add package.json
-          git commit -m "Update package.json version to $CURRENT_TAG"
-      - name: Create merge request
+      - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
           title: Update package.json version to $VERSION
-          branch: update-package-version
+          branch: update-version
           commit-message: Update version to $VERSION
           delete-branch: true
           base: main
@@ -57,7 +51,6 @@ jobs:
           echo "Updating version to: $VERSION"
           jq ".version = \"$VERSION\"" package.json > package.json.tmp
           mv package.json.tmp package.json
-
       - name: Install Dependencies
         run: npm ci
 
