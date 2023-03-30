@@ -15,6 +15,8 @@ jobs:
           TAG=$(echo "${GITHUB_REF#refs/tags/}")
           VERSION=$(echo "$TAG" | sed -e 's/^v//' -e 's/$//' )
           echo "Updating package.json version to $VERSION"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           npm version $VERSION
       - name: Create merge request
         uses: peter-evans/create-pull-request@v3
