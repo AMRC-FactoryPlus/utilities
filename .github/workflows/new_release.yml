@@ -56,7 +56,7 @@ jobs:
       - name: Install Kerberos libraries
         run: |
           sudo apt-get update
-          sudo apt-get -y krb5-libs krb5-dev
+          sudo apt-get install -y krb5-libs krb5-dev
 
       - name: Install Dependencies
         run: npm ci
