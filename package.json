@@ -20,6 +20,10 @@
   },
   "scripts": {},
   "dependencies": {
+    "@types/express": "4",
+    "@types/long": "^4.0.0",
+    "@types/node": ">=13.7.0",
+    "content-type": "^1.0.5",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "find-package-json": "^1.2.0",
@@ -27,13 +31,11 @@
     "gssapi.js": "^2.0.1",
     "http-errors": "^2.0.0",
     "mqtt": "^4.3.5",
+    "optional-js": "^2.3.0",
     "pg": "^8.7.3",
     "protobufjs": "^6.11.3",
     "sparkplug-payload": "^1.0.1",
-    "typescript": "^4.8.4",
-    "@types/express": "4",
-    "@types/long": "^4.0.0",
-    "@types/node": ">=13.7.0"
+    "typescript": "^4.8.4"
   },
   "optionalDependencies": {
     "pg-native": "^3.0.0"
