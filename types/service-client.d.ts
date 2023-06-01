@@ -59,6 +59,8 @@ export interface InterfaceDefinition {
 }
 
 export interface ServiceClientConfig {
+    /** Supply process.env to pull from the environment */
+    env?: { [index: string]: string | undefined };
     /**
      * Username for basic authentication
      */
