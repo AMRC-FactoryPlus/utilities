@@ -34,6 +34,7 @@
     "optional-js": "^2.3.0",
     "pg": "^8.7.3",
     "protobufjs": "^6.11.3",
+    "semver": "^7.5.1",
     "sparkplug-payload": "^1.0.1",
     "typescript": "^4.8.4"
   },
