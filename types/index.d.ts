@@ -13,6 +13,12 @@ export * from "./service-client"
 export * from "./sparkplug-util"
 export * from "./webapi"
 
+export * from "./service/auth";
+export * from "./service/configdb";
+export * from "./service/discovery";
+export * from "./service/fetch";
+export * from "./service/mqtt";
+
 export const Version: string;
 /**
  * UUIDs

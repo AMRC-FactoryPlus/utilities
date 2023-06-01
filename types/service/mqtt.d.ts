@@ -8,7 +8,7 @@ export default class MQTTInterface extends ServiceInterface {
      * URL is can be custom if logging in with Basic Authentication
      * @param opts Options for MQTT Client
      */
-    mqtt_client(opts?: mqttConfig): MqttClient;
+    mqtt_client(opts?: mqttConfig): Promise<MqttClient>;
 }
 
 export interface mqttConfig extends IClientOptions{

@@ -1,7 +1,9 @@
 import {Debug} from "./debug";
-import Fetch from "./service/fetch";
+
 import Auth from "./service/auth";
+import ConfigDB from "./service/configdb";
 import Discovery from "./service/discovery";
+import Fetch from "./service/fetch";
 import MQTTInterface from "./service/mqtt";
 
 
@@ -18,12 +20,6 @@ export class ServiceClient {
     debug: Debug;
 
     /**
-     * Process available interfaces and define them under the properties of ServiceClient.
-     * @param args list of Interface classes
-     */
-    static define_interfaces(...args: (string | typeof ServiceInterface)[][]): void;
-
-    /**
      * Fetches JSON Object from Config DB
      * @param app App uuid
      * @param obj Object uuid
@@ -36,6 +32,11 @@ export class ServiceClient {
      */
     init(): Promise<ServiceClient>;
 
+    Auth: Auth;
+    ConfigDB: ConfigDB;
+    Discovery: Discovery;
+    Fetch: Fetch;
+    MQTT: MQTTInterface;
 }
 
 /**
