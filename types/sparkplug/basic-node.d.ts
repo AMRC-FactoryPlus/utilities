@@ -1,23 +1,24 @@
-import type { MqttClient } from "mqtt";
+import {IClientOptions, MqttClient} from "mqtt/types/lib/client";
 
 import type { Address } from "./util";
 
-interface Settings {
-    address:        Address,
-    publishDeath:   boolean,
-}
-
-interface Will {
+export interface Will {
     topic:          string,
     payload:        Buffer | string,
     qos:            number,
     retain:         boolean,
 }
 
+export interface SPSettings extends IClientOptions {
+    address:        Address,
+    publishDeath:   boolean,
+    mqttFactory?:   (w: Will) => Promise<MqttClient>,
+}
+
 declare class BasicSparkplugNode {
-    constructor (opts: Settings);
+    constructor (opts: SPSettings);
     will (): Will;
-    connect (mqtt: MqttClient): void;
+    connect (mqtt?: MqttClient): void;
 
     /* All these methods may modify the payload parameter, to any depth.
      */
