@@ -1,6 +1,6 @@
 import type { MqttClient } from "mqtt";
 
-import type { Address } from "../sparkplug-util";
+import type { Address } from "./util";
 
 interface Settings {
     address:        Address,

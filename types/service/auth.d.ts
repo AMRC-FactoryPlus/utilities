@@ -1,4 +1,4 @@
-import type { Address } from "../sparkplug-util";
+import type { Address } from "../sparkplug/util";
 import {ServiceClient, ServiceInterface} from "../service-client";
 
 export type aclFunc = (permission: string, target: string, wild?: boolean) => boolean;
