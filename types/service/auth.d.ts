@@ -1,10 +1,18 @@
+import type { Address } from "../sparkplug/util";
 import {ServiceClient, ServiceInterface} from "../service-client";
 
 export type aclFunc = (permission: string, target: string, wild?: boolean) => boolean;
 
-export interface kerberosObj {
+export interface IdentityRequest {
     kerberos?: string;
     uuid?: string;
+    sparkplug?: string | Address;
+}
+
+export interface Identity {
+    uuid: string;
+    kerberos?: string;
+    sparkplug?: Address;
 }
 
 /**
@@ -23,7 +31,7 @@ export default class Auth extends ServiceInterface {
      * @param target target to be accessed
      * @param wild Boolean to allow null UUID in the target to be treated as a wildcard
      */
-    check_acl(principal: string | kerberosObj, permission: string, target: string, wild?: boolean): Promise<boolean>;
+    check_acl(principal: string | IdentityRequest, permission: string, target: string, wild?: boolean): Promise<boolean>;
 
     /**
      *
@@ -37,5 +45,8 @@ export default class Auth extends ServiceInterface {
      * @param query Object containing a principal name
      */
     resolve_principal(query: { kerberos: string }): Promise<string | null>;
+
+    find_principal(kind?: string, identifier?: string | Address):
+        Promise<Identity | undefined>;
 }
 

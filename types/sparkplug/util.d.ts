@@ -1,4 +1,4 @@
-import {UMetric, UPayload} from "./lib/sparkplugpayload";
+import {UMetric, UPayload} from "../lib/sparkplugpayload";
 
 export class Address {
     constructor(group: string, node: string, device?: string);
