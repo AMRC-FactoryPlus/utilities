@@ -20,6 +20,8 @@ export default class ConfigDB extends ServiceInterface {
     get_config (app: string, obj: string): Promise<any>;
     get_config_with_etag (app: string, obj: string)
         : Promise<[any, string | undefined]>;
+    get_config_etag (app: string, obj: string)
+        : Promise<string | undefined>;
     
     put_config (app: string, obj: string, json: any): Promise<void>;
     delete_config (app: string, obj: string): Promise<void>;
