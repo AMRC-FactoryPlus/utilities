@@ -1,4 +1,7 @@
-FROM ghcr.io/amrc-factoryplus/utilities-build AS build
+ARG version=latest
+ARG build=ghcr.io/amrc-factoryplus/utilities-build:${version}
+
+FROM ${build} AS build
 
 FROM node:lts-alpine
 
