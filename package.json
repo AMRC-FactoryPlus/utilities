@@ -1,6 +1,6 @@
 {
   "name": "@amrc-factoryplus/utilities",
-  "version": "1.2.1-bmz1",
+  "version": "1.2.1",
   "description": "A collection of NodeJS utilities for developing components for Factory+",
   "author": "AMRC",
   "license": "MIT",
