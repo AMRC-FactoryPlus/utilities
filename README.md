@@ -9,9 +9,14 @@ trying to consume Factory+ services should use
 
 ## Compatibility
 
-Version 2.0.0 of this package has broken backwards compatibility in one
-minor respect: the method `basic_sparkplug_node` on the MQTT interface
-now returns a Promise and must be awaited. 
+Version 2.0.0 of this package has broken backwards compatibility as
+follows:
+
+* The method `basic_sparkplug_node` on the MQTT interface now returns a
+  Promise and must be awaited. 
+* The Debug class no longer reads `VERBOSE` from the environment, the
+  option must be supplied explicitly.
+* The WebAPI class now requires a `verbose` option to enable logging.
 
 Further versions in the 2.x series are intended only to support the
 existing ACS codebase and may break backwards compat further as needed
